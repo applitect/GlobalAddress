@@ -6,7 +6,7 @@ import java.util.Set;
 
 import org.junit.Test;
 
-public class TestLocales {
+public class CountriesTest {
     @Test
     public void testCountryMap() {
         Map<String,String> list = Countries.getInstance().getCountryCodeMap();
@@ -18,7 +18,7 @@ public class TestLocales {
 
     @Test
     public void testCountryLookup() {
-        Country c = Countries.getInstance().get("US");
-        System.out.println(c.getLocales().getLocales(LocaleLabel.TERR));
+        Country c = Countries.getInstance().get("NZ");
+        System.out.println(c);
     }
 }
