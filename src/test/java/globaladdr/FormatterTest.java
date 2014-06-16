@@ -1,5 +1,10 @@
 package globaladdr;
 
+import static org.junit.Assert.assertEquals;
+import globaladdr.data.Address;
+
+import org.junit.Test;
+
 //
 //import org.safmt.demo.Formatter;
 //import org.safmt.demo.LocationException;
@@ -8,38 +13,67 @@ package globaladdr;
 //import org.testng.annotations.BeforeMethod;
 //import org.testng.annotations.Test;
 
-public class AddressFormatTest {
-//
-//    @BeforeMethod
-//    public void beforeMethod() {
-//        Hibernate.init();
-//    }
-//
-//    @Test(description="Make sure the 9 digit zip code gets formatted correctly.")
-//    public void testNullAddFormat() throws LocationException {
-//
-//        String shouldbe = "";
-//        assert Formatter.getFormattedAddress(null).equals(shouldbe) :
-//            "Formatted US address doesn't match. Was: " + Formatter.getFormattedAddress(null) +
-//            "\n\nShould be: " + shouldbe + "\n";
-//    }
-//
-//    @Test(description="Make sure the 9 digit zip code gets formatted correctly.")
-//    public void testSimpleUSAddFormat() throws LocationException {
-//        Address a = new Address();
-//        a.firstName = "David";
-//        a.mi = "L";
-//        a.lastName = "Thompson";
-//        a.addr1 = "3947 Chapparal Dr.";
-//        a.city = "Helena";
-//        a.localeCode = "MT";
-//        a.postalCode = "596011234";
-//
-//        String shouldbe = "David L Thompson\n3947 Chapparal Dr.\nHelena, MT 59601-1234";
-//        assert Formatter.getFormattedAddress(a).equals(shouldbe) :
-//            "Formatted US address doesn't match. Was: " + Formatter.getFormattedAddress(a) +
-//            "\n\nShould be: " + shouldbe + "\n";
-//    }
+public class FormatterTest {
+    public static final String LINE_BREAK = System.getProperty("line.separator");
+
+
+    @Test
+    public void formatUSPostalCodeTest() {
+        Address address = new Address();
+        address.setCountryCode("US");
+        address.setPostalCode("59601");
+        assertEquals("59601", Formatter.formatUSPostalCode(address));
+        address.setPostalCode("4985");
+        assertEquals("4985", Formatter.formatUSPostalCode(address));
+        address.setPostalCode(null);
+        assertEquals("", Formatter.formatUSPostalCode(address));
+        address.setPostalCode("abcd");
+        assertEquals("abcd", Formatter.formatUSPostalCode(address));
+        address.setPostalCode("59601 1233");
+        assertEquals("59601-1233", Formatter.formatUSPostalCode(address));
+        address.setPostalCode("59601 123");
+        assertEquals("59601", Formatter.formatUSPostalCode(address));
+        address.setPostalCode("59601 1233");
+        assertEquals("59601-1233", Formatter.formatUSPostalCode(address));
+        address.setPostalCode("59601 - 1233");
+        assertEquals("59601-1233", Formatter.formatUSPostalCode(address));
+        address.setPostalCode("  59601  1233  ");
+        assertEquals("59601-1233", Formatter.formatUSPostalCode(address));
+        address.setPostalCode("59601 - 12");
+        assertEquals("59601", Formatter.formatUSPostalCode(address));
+        address.setPostalCode("7J8 Q9F");
+        assertEquals("7J8 Q9F", Formatter.formatUSPostalCode(address));
+        address.setCountryCode("CA");
+        address.setPostalCode("7J8 Q9F");
+        assertEquals("7J8 Q9F", Formatter.formatUSPostalCode(address));
+        address.setPostalCode("921118765");
+        assertEquals("921118765", Formatter.formatUSPostalCode(address));
+    }
+
+    @Test
+    public void formatTestNull() {
+        String shouldbe = "";
+        assertEquals(shouldbe, Formatter.format(null));
+    }
+
+    @Test
+    public void simpleUSAddFormatTest() {
+        Address a = new Address();
+        a.firstName = "David";
+        a.mi = "L";
+        a.lastName = "Thompson";
+        a.addr1 = "123 Test Way Blvd";
+        a.addr2 = "Suite 201";
+        a.city = "Helena";
+        a.localeCode = "MT";
+        a.postalCode = "59601";
+
+        String shouldbe = "David L Thompson" + LINE_BREAK +
+                "123 Test Way Blvd" + LINE_BREAK +
+                "Suite 201" + LINE_BREAK +
+                "Helena, MT 59601";
+        assertEquals(shouldbe, Formatter.format(a));
+    }
 //
 //    @Test(description="Make sure that no first name won't cause a problem")
 //    public void testNullFNAddFormat() throws LocationException {

@@ -13,12 +13,12 @@ public class Country {
     private boolean hasLocales;
     private double capitalGMTOffset;
     private Locales locales;
-    private String printLayout;
+    private PrintLayout printLayout;
 
     public Country(String code, String name, String printName, CityLabel cityLabel,
             LocaleLabel localeLabel, String samplePostalCode, String postalCodeValidation,
             String phonePrefix, boolean hasLocales, double capitalGMTOffset,
-            Locales locales, String printLayout) {
+            Locales locales, PrintLayout printLayout) {
         this.code = code;
         this.name = name;
         this.printName = printName;
@@ -121,11 +121,11 @@ public class Country {
         this.locales = locales;
     }
 
-    public String getPrintLayout() {
+    public PrintLayout getPrintLayout() {
         return printLayout;
     }
 
-    public void setPrintLayout(String printLayout) {
+    public void setPrintLayout(PrintLayout printLayout) {
         this.printLayout = printLayout;
     }
 
