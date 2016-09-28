@@ -57,7 +57,6 @@ public class Countries {
     private static Map<String, Country> initializeMap() {
         Map<String, PrintLayout> layouts = PrintLayouts.getInstance().getCountryLayouts();
         Map<String, Country> list = new HashMap<String, Country>();
-        String cc;
         addCountry(list, layouts, new Country("NU","NIUE","NEW ZEALAND",TOWN,null,"6001","\\d{4}","683",false,-11,null, null));
         addCountry(list, layouts, new Country("NF","NORFOLK ISLAND","AUSTRALIA",CITY,STAT,"2060","\\d{4}","672",false,11.5,null, null));
         addCountry(list, layouts, new Country("NO","NORWAY","NORWAY",TOWN,null,"0025","\\d{4}","47",false,1,null, null));

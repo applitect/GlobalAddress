@@ -10,6 +10,8 @@ public class AddressWExtra implements AddressI, AddressExtrasI {
     public String addr1;
     public String addr2;
     public String addr3;
+    public String unitType;
+    public String unitNumber;
     public String city;
     public String postalCode;
     public String countryCode;
@@ -53,6 +55,18 @@ public class AddressWExtra implements AddressI, AddressExtrasI {
     }
     public void setAddr3(String addr3) {
         this.addr3 = addr3;
+    }
+    public String getUnitType() {
+        return this.unitType;
+    }
+    public void setUnitType(String unitType) {
+        this.unitType = unitType;
+    }
+    public String getUnitNumber() {
+        return this.unitNumber;
+    }
+    public void setUnitNumber(String unitNumber) {
+        this.unitNumber = unitNumber;
     }
     public String getCity() {
         return city;

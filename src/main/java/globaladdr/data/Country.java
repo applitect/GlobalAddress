@@ -73,6 +73,10 @@ public class Country {
         this.localeLabel = localeLabel;
     }
 
+    public boolean isLocaleUsed() {
+        return this.localeLabel != null;
+    }
+
     public String getSamplePostalCode() {
         return samplePostalCode;
     }
@@ -89,6 +93,10 @@ public class Country {
         this.postalCodeValidation = postalCodeValidation;
     }
 
+    public boolean isPostalCodeUsed() {
+        return this.samplePostalCode != null;
+    }
+
     public String getPhonePrefix() {
         return phonePrefix;
     }
@@ -97,7 +105,7 @@ public class Country {
         this.phonePrefix = phonePrefix;
     }
 
-    public boolean isHasLocales() {
+    public boolean hasLocales() {
         return hasLocales;
     }
 
