@@ -1,5 +1,10 @@
 package globaladdr.data;
 
+/**
+ * A locale is the generic class to hold information about a state, territory, province, etc.
+ *
+ * @author David Thompson
+ */
 public class Locale {
     private LocaleLabel type;
     private String code;

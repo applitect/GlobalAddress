@@ -1,0 +1,7 @@
+= GlobalAddress
+
+'''
+The ability to validate and format data for foreign addresses. Provides data such as states lists for multiple countries.
+Handles formatting addresses in countries native formats, etc.
+
+For handling international phone numbers check out Google's internationalization https://github.com/googlei18n/libphonenumber[libphonenumber].

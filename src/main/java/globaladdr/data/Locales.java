@@ -19,6 +19,11 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 
+/**
+ * The sets of locales for countries.
+ *
+ * @author dthompson
+ */
 public class Locales {
     private Map<String, Locale> locales;
 
