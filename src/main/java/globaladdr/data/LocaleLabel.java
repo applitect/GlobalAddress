@@ -1,7 +1,7 @@
 package globaladdr.data;
 
 public enum LocaleLabel {
-    MLRY("Milatary"),
+    MLRY("Military"),
     LOCL("Locality"),
     STAT("State"),
     EMRT("Emirates"),
