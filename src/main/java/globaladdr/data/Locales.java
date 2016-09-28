@@ -50,6 +50,10 @@ public abstract class Locales {
         return Collections.unmodifiableList(list);
     }
 
+    public boolean contains(String localeCode) {
+        return locales.containsKey(localeCode);
+    }
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
