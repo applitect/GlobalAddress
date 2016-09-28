@@ -1,4 +1,5 @@
 package globaladdr;
+
 import globaladdr.data.Countries;
 import globaladdr.data.Country;
 import globaladdr.data.PrintLayout;
@@ -7,7 +8,6 @@ import globaladdr.util.Utility;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-
 
 /**
  * The class {@code Formatter} contains methods for formatting demographic data.
